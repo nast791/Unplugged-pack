@@ -1,0 +1,43 @@
+{
+  "id": "tesla",
+  "name": "Никола Тесла",
+  "stats": {
+    "hp": 14,
+    "move": 2,
+    "rangeType": "ranged",
+    "size": 1
+  },
+  "assistants": [],
+  "extraItems": [
+    [
+      {
+        "id": "tesla_coil_1",
+        "name": "Катушка Теслы",
+        "count": 1,
+        "type": "coil",
+        "state": "active",
+        "image": "assets/tokens/coil_active.webp"
+      },
+      {
+        "id": "tesla_coil_2",
+        "name": "Катушка Теслы",
+        "count": 1,
+        "type": "coil",
+        "state": "inactive",
+        "image": "assets/tokens/coil_inactive.webp"
+      }
+    ]
+  ],
+  "ability": {
+    "id": "tesla_coils",
+    "title": "Мастерство катушек",
+    "text": "Начните игру с 1 заряженной катушкой. В конце своего ходя зарядите 1 катушку. В начале своего хода, если обе катушки заряжены, нанесите 1 урон каждому бойцу противника на смежных с Теслой ячейках и переместите их на расстояние до 1 ячейки.",
+    "image": "passport.webp"
+  },
+  "assets": {
+    "avatar": "avatar.webp",
+    "cardBack": "card_back.webp",
+    "cardsDir": "assets/cards/"
+  },
+  "deckFile": "cards.json"
+}

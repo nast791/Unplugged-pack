@@ -1,0 +1,29 @@
+{
+  "id": "sarpedon",
+  "name": "Сарпедон",
+  "players": 4,
+  "assets": {
+    "background": "background.webp"
+  },
+  "settings": {
+    "nodeSize": 50,
+    "gridScale": 1.0
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "x": 120,
+      "y": 450,
+      "zones": ["red", "blue"],
+      "neighbors": [2, 5, 10],
+      "start": "p1"
+    },
+    {
+      "id": 2,
+      "x": 240,
+      "y": 460,
+      "zones": ["red"],
+      "neighbors": [1, 3]
+    }
+  ]
+}
