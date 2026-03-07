@@ -1,0 +1,33 @@
+{
+  "id": "medusa",
+  "name": "Медуза",
+  "stats": {
+    "hp": 16,
+    "move": 3,
+    "rangeType": "ranged",
+    "size": 1
+  },
+  "assistants": [
+    {
+      "id": "harpies",
+      "name": "Гарпии",
+      "count": 3,
+      "hp": 1,
+      "rangeType": "melee",
+      "size": 1,
+      "image": "assets/tokens/harpies.webp"
+    }
+  ],
+  "ability": {
+    "id": "medusa_gaze",
+    "title": "Взгляд Медузы",
+    "text": "В начале вашего хода вы можете нанести 1 урона бойцу противника в зоне Медузы.",
+    "image": "passport.webp"
+  },
+  "assets": {
+    "avatar": "avatar.webp",
+    "cardBack": "card_back.webp",
+    "cardsDir": "assets/cards/"
+  },
+  "deckFile": "cards.json"
+}

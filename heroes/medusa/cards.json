@@ -1,0 +1,123 @@
+[
+	{
+		"id": "m01",
+		"title": "Убийственный взор",
+		"type": "attack",
+		"value": 2,
+		"boost": 4,
+		"quantity": 3,
+		"character": "medusa",
+		"text": "ПОСЛЕ БОЯ: Если вы победили в бою, нанесите бойцу, которого вы атаковали, 8 единиц урона.",
+		"image": "m01.webp"
+	},
+	{
+		"id": "m02",
+		"title": "Второй выстрел",
+		"type": "attack",
+		"value": 3,
+		"boost": 3,
+		"quantity": 3,
+		"character": "medusa",
+		"text": "ВО ВРЕМЯ БОЯ: Можете усилить эту атаку.",
+		"image": "m02.webp"
+	},
+	{
+		"id": "m03",
+		"title": "Шипеть и извиваться",
+		"type": "defense",
+		"value": 4,
+		"boost": 3,
+		"quantity": 3,
+		"character": "medusa",
+		"text": "ПОСЛЕ БОЯ: Ваш противник сбрасывает 1 карту.",
+		"image": "m03.webp"
+	},
+	{
+		"id": "m04",
+		"title": "Гончие могучего Зевса",
+		"type": "versatile",
+		"value": 4,
+		"boost": 3,
+		"quantity": 2,
+		"character": "harpies",
+		"text": "ПОСЛЕ БОЯ: Переместите каждую гарпию на расстояние до 3 ячеек.",
+		"image": "m04.webp"
+	},
+	{
+		"id": "m05",
+		"title": "Мертвая хватка",
+		"type": "versatile",
+		"value": 3,
+		"boost": 2,
+		"quantity": 3,
+		"character": "harpies",
+		"text": "ПОСЛЕ БОЯ: Ваш противник сбрасывает 1 карту.",
+		"image": "m05.webp"
+	},
+	{
+		"id": "m06",
+		"title": "Рывок",
+		"type": "versatile",
+		"value": 3,
+		"boost": 1,
+		"quantity": 3,
+		"character": "any",
+		"text": "ПОСЛЕ БОЯ: Переместите вашего бойца, участвовавшего в бою, на расстояние до 3 ячеек.",
+		"image": "m06.webp"
+	},
+	{
+		"id": "m07",
+		"title": "Меткий выстрел",
+		"type": "versatile",
+		"value": 3,
+		"boost": 1,
+		"quantity": 3,
+		"character": "any",
+		"text": "ПОСЛЕ БОЯ: Возьмите 1 карту.",
+		"image": "m07.webp"
+	},
+	{
+		"id": "m08",
+		"title": "Уловка",
+		"type": "versatile",
+		"value": 2,
+		"boost": 2,
+		"quantity": 3,
+		"character": "any",
+		"text": "НЕМЕДЛЕННО: Отмените все эффекты карты противника.",
+		"image": "m08.webp"
+	},
+	{
+		"id": "m09",
+		"title": "Передышка",
+		"type": "versatile",
+		"value": 1,
+		"boost": 2,
+		"quantity": 3,
+		"character": "any",
+		"text": "ПОСЛЕ БОЯ: Возьмите 1 карту. Если вы победили в бою, вместо этого возьмите 2 карты.",
+		"image": "m09.webp"
+	},
+	{
+		"id": "m10",
+		"title": "Мимолетный взгляд",
+		"type": "scheme",
+		"value": null,
+		"boost": 4,
+		"quantity": 2,
+		"character": "medusa",
+		"text": "Нанесите 2 урона любому бойцу в зоне Медузы.",
+		"image": "m10.webp"
+	},
+  {
+		"id": "m11",
+		"title": "Крылатое буйство",
+		"type": "scheme",
+		"value": null,
+		"boost": 2,
+		"quantity": 2,
+		"character": "any",
+		"text": "Переместите всех ваших бойцов на расстояние до 3 ячеек. Можете перемещать их через ячейки, занятые бойцами противника. Затем верните поверженную Гарпию (если есть) на любую ячейку в зоне Медузы.",
+		"image": "m11.webp"
+	}
+]

@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "heroes": [
+    {
+      "id": "medusa",
+      "name": "Медуза",
+      "folder": "heroes/medusa/",
+      "main": "index.json"
+    },
+    {
+      "id": "tesla",
+      "name": "Никола Тесла",
+      "folder": "heroes/tesla/",
+      "main": "index.json"
+    }
+  ],
+  "maps": [
+    {
+      "id": "sarpedon",
+      "name": "Сарпедон",
+      "folder": "maps/sarpedon/",
+      "main": "index.json",
+      "image": "background.webp"
+    }
+  ]
+}
