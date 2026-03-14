@@ -16,9 +16,9 @@
   ],
   "maps": [
     {
-      "id": "sarpedon",
-      "name": "Сарпедон",
-      "folder": "maps/sarpedon/",
+      "id": "alchemy",
+      "name": "Алхимия",
+      "folder": "maps/alchemy/",
       "main": "index.json",
       "image": "background.webp"
     }
