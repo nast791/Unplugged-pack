@@ -5,13 +5,15 @@
       "id": "medusa",
       "name": "Медуза",
       "folder": "heroes/medusa/",
-      "main": "index.json"
+      "main": "index.json",
+      "image": "avatar.webp"
     },
     {
       "id": "tesla",
       "name": "Никола Тесла",
       "folder": "heroes/tesla/",
-      "main": "index.json"
+      "main": "index.json",
+      "image": "avatar.webp"
     }
   ],
   "maps": [

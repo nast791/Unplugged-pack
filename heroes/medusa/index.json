@@ -22,11 +22,10 @@
     "id": "medusa_gaze",
     "title": "Взгляд Медузы",
     "text": "В начале вашего хода вы можете нанести 1 урона бойцу противника в зоне Медузы.",
-    "image": "passport.webp"
+    "image": "assets/passport.webp"
   },
   "assets": {
-    "avatar": "avatar.webp",
-    "cardBack": "card_back.webp",
+    "cardBack": "assets/card_back.webp",
     "cardsDir": "assets/cards/"
   },
   "deckFile": "cards.json"
