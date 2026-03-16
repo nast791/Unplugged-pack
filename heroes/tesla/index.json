@@ -32,11 +32,10 @@
     "id": "tesla_coils",
     "title": "Мастерство катушек",
     "text": "Начните игру с 1 заряженной катушкой. В конце своего ходя зарядите 1 катушку. В начале своего хода, если обе катушки заряжены, нанесите 1 урон каждому бойцу противника на смежных с Теслой ячейках и переместите их на расстояние до 1 ячейки.",
-    "image": "passport.webp"
+    "image": "assets/passport.webp"
   },
   "assets": {
-    "avatar": "avatar.webp",
-    "cardBack": "card_back.webp",
+    "cardBack": "assets/card_back.webp",
     "cardsDir": "assets/cards/"
   },
   "deckFile": "cards.json"
