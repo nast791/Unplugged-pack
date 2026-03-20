@@ -6,14 +6,16 @@
       "name": "Медуза",
       "folder": "heroes/medusa/",
       "main": "index.json",
-      "image": "avatar.webp"
+      "image": "avatar.webp",
+      "color": "#7DB95F"
     },
     {
       "id": "tesla",
       "name": "Никола Тесла",
       "folder": "heroes/tesla/",
       "main": "index.json",
-      "image": "avatar.webp"
+      "image": "avatar.webp",
+      "color": "#D57264"
     }
   ],
   "maps": [
@@ -22,7 +24,8 @@
       "name": "Алхимия",
       "folder": "maps/alchemy/",
       "main": "index.json",
-      "image": "background.webp"
+      "image": "background.webp",
+      "players": 4
     }
   ]
 }
