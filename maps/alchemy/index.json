@@ -1,10 +1,9 @@
 {
 	"id": "alchemy",
 	"name": "Алхимия",
+	"folder": "maps/alchemy/",
+	"image": "background.webp",
 	"players": 4,
-	"assets": {
-		"background": "background.webp"
-	},
 	"settings": {
 		"nodeSize": 250,
 		"gridScale": 1.0

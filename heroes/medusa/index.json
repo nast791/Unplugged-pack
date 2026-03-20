@@ -20,7 +20,7 @@
       "move": 3,
       "rangeType": "melee",
       "size": 1,
-      "image": "assets/tokens/harpies.webp"
+      "image": "harpies.webp"
     }
   ],
   "ability": {
