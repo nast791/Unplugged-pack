@@ -19,28 +19,24 @@
         "name": "Катушка Теслы",
         "count": 1,
         "type": "coil",
-        "state": "active",
-        "image": "assets/tokens/coil_active.webp"
+        "state": "active"
       },
       {
         "id": "tesla_coil_2",
         "name": "Катушка Теслы",
         "count": 1,
         "type": "coil",
-        "state": "inactive",
-        "image": "assets/tokens/coil_inactive.webp"
+        "state": "inactive"
       }
     ]
   ],
   "ability": {
     "id": "tesla_coils",
     "title": "Мастерство катушек",
-    "text": "Начните игру с 1 заряженной катушкой. В конце своего ходя зарядите 1 катушку. В начале своего хода, если обе катушки заряжены, нанесите 1 урон каждому бойцу противника на смежных с Теслой ячейках и переместите их на расстояние до 1 ячейки.",
-    "image": "assets/passport.webp"
+    "text": "Начните игру с 1 заряженной катушкой. В конце своего ходя зарядите 1 катушку. В начале своего хода, если обе катушки заряжены, нанесите 1 урон каждому бойцу противника на смежных с Теслой ячейках и переместите их на расстояние до 1 ячейки."
   },
-  "assets": {
+  "cards": {
     "cardBack": "assets/card_back.webp",
     "cardsDir": "assets/cards/"
-  },
-  "deckFile": "cards.json"
+  }
 }
