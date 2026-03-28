@@ -15,15 +15,19 @@
   "items": [
     {
       "id": "coil_1",
-      "name": "Катушка Теслы",
       "type": "coil",
-      "state": "active"
+      "color": "#FACC15",
+      "state": "active",
+      "icon": "bi:lightning-fill",
+      "name": "Катушка Теслы"
     },
     {
       "id": "coil_2",
-      "name": "Катушка Теслы",
       "type": "coil",
-      "state": "inactive"
+      "color": "#FACC15",
+      "state": "inactive",
+      "icon": "bi:lightning-fill",
+      "name": "Катушка Теслы"
     }
   ],
   "ability": {
