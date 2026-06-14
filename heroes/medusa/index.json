@@ -27,9 +27,69 @@
 	],
 	"skill": {
 		"id": "medusa_skill",
-		"title": "Взгляд Медузы",
-		"trigger": "start_turn",
-		"text": "Начало хода: вы можете нанести 1 урон вражескому бойцу в одной области с Медузой."
+		"heroId": "medusa",
+		"name": "Взгляд Медузы",
+		"text": "Начало хода: вы можете нанести 1 урон вражескому бойцу в одной области с Медузой.",
+		"triggers": [
+			{
+				"id": "gaze",
+				"trigger": "EFFECT_TRIGGERS.START_TURN",
+				"conditions": {
+					"all": [
+						{ "fact": "HERO_ON_BOARD", "params": { "fighterId": "medusa" } },
+						{
+							"fact": "FIGHTERS_IN_RANGE",
+							"params": { "sourceId": "medusa", "side": "opponent", "kind": "fighter" },
+							"check": { "var": "$candidates", "operator": "isNonEmpty" },
+							"return": "$candidates"
+						}
+					]
+				},
+				"actions": [
+					{
+						"id": "ask_apply",
+						"type": "PROMPT",
+						"start": true,
+						"return": "$answer",
+						"conditions": { "all": [{ "var": "$answer", "operator": "isEmpty" }] },
+						"params": {
+							"message": "Применить способность героя?",
+							"answers": [
+								{ "id": "apply", "text": "Да", "value": "apply" },
+								{ "id": "skip", "text": "Нет", "value": "skip" }
+							]
+						}
+					},
+					{
+						"id": "pick_target",
+						"type": "SELECT_EFFECT_TARGETS",
+						"return": "$targets",
+						"conditions": {
+							"all": [
+								{ "var": "$answer", "operator": "equal", "value": "apply" },
+								{ "var": "$targets", "operator": "isEmpty" }
+							]
+						},
+						"params": {
+							"candidates": "$candidates",
+							"selection": 1
+						}
+					},
+					{
+						"id": "deal_damage",
+						"type": "DAMAGE_FIGHTERS",
+						"end": true,
+						"conditions": {
+							"all": [
+								{ "var": "$answer", "operator": "equal", "value": "apply" },
+								{ "var": "$targets", "operator": "isNonEmpty" }
+							]
+						},
+						"params": { "targets": "$targets", "damage": 1 }
+					}
+				]
+			}
+		]
 	},
 	"cards": {
 		"cardBack": "assets/card_back.webp",
