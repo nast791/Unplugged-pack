@@ -32,29 +32,26 @@
     "triggers": [
       {
         "id": "init_coils",
-        "trigger": "EFFECT_TRIGGERS.START_GAME",
-        "conditions": {
-          "all": [{ "fact": "HERO_ON_BOARD", "params": { "fighterId": "tesla" } }]
-        },
+        "trigger": "start_game",
         "actions": [
           {
             "id": "activate_first_coil",
             "type": "ACTIVATE_ITEMS",
             "start": true,
             "end": true,
-            "params": { "type": "coil", "count": 1, "state": "ITEM_STATES.ACTIVE" }
+            "params": { "type": "coil", "count": 1, "state": "active" }
           }
         ]
       },
       {
         "id": "charge_coil",
-        "trigger": "EFFECT_TRIGGERS.END_TURN",
+        "trigger": "end_turn",
         "conditions": {
           "all": [
             { "fact": "HERO_ON_BOARD", "params": { "fighterId": "tesla" } },
             {
               "fact": "COUNT_ITEMS",
-              "params": { "type": "coil", "state": "ITEM_STATES.INACTIVE" },
+              "params": { "type": "coil", "state": "inactive" },
               "check": { "var": "$count", "operator": "greater", "value": 0 }
             }
           ]
@@ -65,13 +62,13 @@
             "type": "ACTIVATE_ITEMS",
             "start": true,
             "end": true,
-            "params": { "type": "coil", "count": 1, "state": "ITEM_STATES.ACTIVE" }
+            "params": { "type": "coil", "count": 1, "state": "active" }
           }
         ]
       },
       {
         "id": "discharge",
-        "trigger": "EFFECT_TRIGGERS.START_TURN",
+        "trigger": "start_turn",
         "conditions": {
           "all": [
             { "fact": "HERO_ON_BOARD", "params": { "fighterId": "tesla" } },
