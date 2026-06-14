@@ -17,14 +17,7 @@
     {
       "id": "coil_1",
       "type": "coil",
-      "color": "#FACC15",
-      "state": "active",
-      "icon": "bi:lightning-fill",
-      "name": "Катушка Теслы"
-    },
-    {
-      "id": "coil_2",
-      "type": "coil",
+      "count": 2,
       "color": "#FACC15",
       "state": "inactive",
       "icon": "bi:lightning-fill",
@@ -33,9 +26,96 @@
   ],
   "skill": {
     "id": "tesla_skill",
-    "title": "Мастерство катушек",
-    "trigger": ["start_game", "start_turn", "end_turn"], 
-    "text": "В начале игры 1 катушка уже активна. Конец хода: активируйте 1 катушку. Начало хода: если обе катушки активны, нанесите 1 урон каждому вражескому бойцу на соседних с Теслой клетках и передвиньте их на расстояние до 1 клетки."
+    "heroId": "tesla",
+    "name": "Мастерство катушек",
+    "text": "В начале игры 1 катушка уже активна. Конец хода: активируйте 1 катушку. Начало хода: если обе катушки активны, нанесите 1 урон каждому вражескому бойцу на соседних с Теслой клетках и передвиньте их на расстояние до 1 клетки.",
+    "triggers": [
+      {
+        "id": "init_coils",
+        "trigger": "EFFECT_TRIGGERS.START_GAME",
+        "conditions": {
+          "all": [{ "fact": "HERO_ON_BOARD", "params": { "fighterId": "tesla" } }]
+        },
+        "actions": [
+          {
+            "id": "activate_first_coil",
+            "type": "ACTIVATE_ITEMS",
+            "start": true,
+            "end": true,
+            "params": { "type": "coil", "count": 1, "state": "ITEM_STATES.ACTIVE" }
+          }
+        ]
+      },
+      {
+        "id": "charge_coil",
+        "trigger": "EFFECT_TRIGGERS.END_TURN",
+        "conditions": {
+          "all": [
+            { "fact": "HERO_ON_BOARD", "params": { "fighterId": "tesla" } },
+            {
+              "fact": "COUNT_ITEMS",
+              "params": { "type": "coil", "state": "ITEM_STATES.INACTIVE" },
+              "check": { "var": "$count", "operator": "greater", "value": 0 }
+            }
+          ]
+        },
+        "actions": [
+          {
+            "id": "activate_coil",
+            "type": "ACTIVATE_ITEMS",
+            "start": true,
+            "end": true,
+            "params": { "type": "coil", "count": 1, "state": "ITEM_STATES.ACTIVE" }
+          }
+        ]
+      },
+      {
+        "id": "discharge",
+        "trigger": "EFFECT_TRIGGERS.START_TURN",
+        "conditions": {
+          "all": [
+            { "fact": "HERO_ON_BOARD", "params": { "fighterId": "tesla" } },
+            { "fact": "ALL_ITEMS_ACTIVE", "params": { "type": "coil", "count": 2 } },
+            {
+              "fact": "FIGHTERS_IN_RANGE",
+              "params": { "sourceId": "tesla", "side": "opponent", "kind": "fighter", "maxSteps": 1 },
+              "check": { "var": "$candidates", "operator": "isNonEmpty" },
+              "return": "$candidates"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "id": "coil_damage",
+            "type": "DAMAGE_FIGHTERS",
+            "start": true,
+            "params": { "targets": "$candidates", "damage": 1 }
+          },
+          {
+            "id": "ask_push",
+            "type": "PROMPT",
+            "return": "$pushAnswer",
+            "conditions": { "all": [{ "var": "$pushAnswer", "operator": "isEmpty" }] },
+            "params": {
+              "message": "Передвинуть цели на расстояние 1 клетки?",
+              "answers": [
+                { "id": "push", "text": "Да", "value": "push" },
+                { "id": "skip", "text": "Нет", "value": "skip" }
+              ]
+            }
+          },
+          {
+            "id": "coil_push",
+            "type": "PUSH_FIGHTERS",
+            "end": true,
+            "conditions": {
+              "all": [{ "var": "$pushAnswer", "operator": "equal", "value": "push" }]
+            },
+            "params": { "sourceId": "tesla", "targets": "$candidates", "maxSteps": 1 }
+          }
+        ]
+      }
+    ]
   },
   "cards": {
     "cardBack": "assets/card_back.webp",
