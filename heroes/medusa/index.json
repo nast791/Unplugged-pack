@@ -33,7 +33,7 @@
 		"triggers": [
 			{
 				"id": "gaze",
-				"trigger": "EFFECT_TRIGGERS.START_TURN",
+				"trigger": "start_turn",
 				"conditions": {
 					"all": [
 						{ "fact": "HERO_ON_BOARD", "params": { "fighterId": "medusa" } },
