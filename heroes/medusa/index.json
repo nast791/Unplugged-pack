@@ -36,11 +36,23 @@
 				"trigger": "start_turn",
 				"conditions": {
 					"all": [
-						{ "fact": "HERO_ON_BOARD", "params": { "fighterId": "medusa" } },
+						{
+							"fact": "HERO_ON_BOARD",
+							"params": {
+								"fighterId": "medusa"
+							}
+						},
 						{
 							"fact": "FIGHTERS_IN_RANGE",
-							"params": { "sourceId": "medusa", "side": "opponent", "kind": "fighter" },
-							"check": { "var": "$candidates", "operator": "isNonEmpty" },
+							"params": {
+								"sourceId": "medusa",
+								"side": "opponent",
+								"kind": "fighter"
+							},
+							"check": {
+								"var": "$candidates",
+								"operator": "isNonEmpty"
+							},
 							"return": "$candidates"
 						}
 					]
@@ -51,29 +63,79 @@
 						"type": "PROMPT",
 						"start": true,
 						"return": "$answer",
-						"conditions": { "all": [{ "var": "$answer", "operator": "isEmpty" }] },
+						"conditions": {
+							"all": [
+								{
+									"var": "$answer",
+									"operator": "isEmpty"
+								},
+								{
+									"var": "$candidates",
+									"operator": "isNonEmpty"
+								}
+							]
+						},
 						"params": {
 							"message": "Применить способность героя?",
 							"answers": [
-								{ "id": "apply", "text": "Да", "value": "apply" },
-								{ "id": "skip", "text": "Нет", "value": "skip" }
+								{
+									"id": "apply",
+									"text": "Да",
+									"value": "apply"
+								},
+								{
+									"id": "skip",
+									"text": "Нет",
+									"value": "skip"
+								}
 							]
-						}
+						},
+						"description": "Спросить: применить способность «Взгляд Медузы»?"
+					},
+					{
+						"id": "finish_skip",
+						"type": "LOG",
+						"end": true,
+						"conditions": {
+							"all": [
+								{
+									"var": "$answer",
+									"operator": "equal",
+									"value": "skip"
+								}
+							]
+						},
+						"params": {
+							"message": "Способность не применена"
+						},
+						"description": "Завершить — способность не применена"
 					},
 					{
 						"id": "pick_target",
-						"type": "SELECT_EFFECT_TARGETS",
+						"type": "SELECT_TARGET",
 						"return": "$targets",
 						"conditions": {
 							"all": [
-								{ "var": "$answer", "operator": "equal", "value": "apply" },
-								{ "var": "$targets", "operator": "isEmpty" }
+								{
+									"var": "$answer",
+									"operator": "equal",
+									"value": "apply"
+								},
+								{
+									"var": "$targets",
+									"operator": "isEmpty"
+								},
+								{
+									"var": "$candidates",
+									"operator": "isNonEmpty"
+								}
 							]
 						},
 						"params": {
 							"candidates": "$candidates",
 							"selection": 1
-						}
+						},
+						"description": "Выбрать вражеского бойца в области Медузы"
 					},
 					{
 						"id": "deal_damage",
@@ -81,11 +143,22 @@
 						"end": true,
 						"conditions": {
 							"all": [
-								{ "var": "$answer", "operator": "equal", "value": "apply" },
-								{ "var": "$targets", "operator": "isNonEmpty" }
+								{
+									"var": "$answer",
+									"operator": "equal",
+									"value": "apply"
+								},
+								{
+									"var": "$targets",
+									"operator": "isNonEmpty"
+								}
 							]
 						},
-						"params": { "targets": "$targets", "damage": 1 }
+						"params": {
+							"targets": "$targets",
+							"damage": 1
+						},
+						"description": "Нанести 1 урон выбранной цели"
 					}
 				]
 			}
